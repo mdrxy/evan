@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        
+        <title>Evan Gershkovich Counter</title>
+
+        <style>
+            #name {
+                font-size: 7rem;
+            }
+
+            #numDays {
+                font-size: 12rem;
+            }
+
+            /* #hashtag {
+                font-size: 4rem;
+            } */
+
+            html,
+            body,
+            .container-fluid,
+            .row,
+            .col {
+                height: 100%;
+            }
+
+            .img-fit-height {
+                height: 100%;
+                width: auto;
+            }
+
+            .img-contain {
+                overflow: hidden;
+            }
+
+            #textCol {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    
+    <body class="text-light bg-black">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <!-- Left Column -->
+                <div id="textCol" class="col">
+                    <h1 id="name">Evan Gershkovich</h1>
+                    <h2 id="numDays"></h2>
+                    <!-- <h3 id="hashtag">#IStandWithEvan</h3> -->
+                </div>
+
+                <!-- Right Column -->
+                <div class="col img-contain">
+                    <img src="evan.jpg" class="img-fit-height" alt="Evan Gershkovich headshot">
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            function calculateDays() {
+                var inputDate = "2023-03-29";
+                var inputDateObj = new Date(inputDate);
+                var currentDateObj = new Date();
+                var difference = currentDateObj.getTime() - inputDateObj.getTime();
+
+                // Convert to days
+                var daysDifference = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+                document.getElementById('numDays').innerText = `${daysDifference} Days`;
+            }
+
+            calculateDays();
+        </script>
+    </body>
+
+</html>
